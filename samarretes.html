@@ -76,6 +76,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
   footer{flex-direction:column;align-items:center;text-align:center}
 }
 @media (prefers-reduced-motion:reduce){.card img,.pill>span{transition:none}}
+.cardw{position:relative}
+.zoom{position:absolute;top:8px;right:8px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(48,66,84,.78);color:#fff;display:grid;place-items:center;cursor:pointer;transition:transform .15s,background .15s;z-index:2}
+.zoom svg{width:22px;height:22px}
+.zoom:hover{background:var(--ink);transform:scale(1.08)}
+.zoom:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+.fz .zoom{top:12px;right:12px;width:46px;height:46px}
+dialog#zv{border:0;padding:0;background:transparent;max-width:min(94vw,900px);width:100%;overflow:visible}
+dialog#zv::backdrop{background:rgba(10,25,40,.85)}
+#zimg{display:block;width:100%;height:auto;max-height:80vh;object-fit:contain;border-radius:12px;background:#fff}
+.zbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;color:#fff;font:600 18px/1.2 'Poppins',Arial,sans-serif}
+.zpick{background:var(--yellow);color:var(--ink);border:0;border-radius:999px;padding:12px 20px;font:700 15px/1 'Poppins',Arial,sans-serif;cursor:pointer}
+.zclose{position:absolute;top:-14px;right:-14px;width:40px;height:40px;border-radius:50%;border:0;background:var(--yellow);color:var(--ink);font:700 18px/1 Arial,sans-serif;cursor:pointer;z-index:3}
+@media (max-width:640px){.zclose{top:8px;right:8px}.zbar{flex-direction:column;align-items:stretch;text-align:center}}
 </style>
 </head>
 <body data-lang="cat">
@@ -96,7 +109,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
 <input type="hidden" name="Idioma" id="idioma" value="CAT">
 
 <section class="front">
-<img src="assets/samarreta-front.webp" alt="Disseny frontal">
+<div class="cardw fz"><img src="assets/samarreta-front.webp" alt="Disseny frontal"><button type="button" class="zoom" data-k="front" data-n="" aria-label="Ampliar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button></div>
 <div><h2><span class="t-ca">Disseny frontal</span><span class="t-es">Diseño frontal</span></h2><p><span class="t-ca">Igual per a totes les samarretes. A l’esquena hi va el disseny que triïs.</span><span class="t-es">Igual para todas las camisetas. En la espalda va el diseño que elijas.</span></p><p class="price">10 €</p></div>
 </section>
 
@@ -119,7 +132,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
 
 <section class="box">
 <p class="lbl"><span class="t-ca">Quin disseny vols?</span><span class="t-es">¿Qué diseño quieres?</span> *</p>
-<div class="cards"><label class="card"><input type="radio" name="Disseny" value="Chipirón" required><img src="assets/samarreta-chipiron.webp" alt="Chipirón" loading="lazy"><span class="cname">Chipirón</span></label><label class="card"><input type="radio" name="Disseny" value="Regalo"><img src="assets/samarreta-regalo.webp" alt="Regalo" loading="lazy"><span class="cname">Regalo</span></label><label class="card"><input type="radio" name="Disseny" value="Hijo"><img src="assets/samarreta-hijo.webp" alt="Hijo" loading="lazy"><span class="cname">Hijo</span></label><label class="card"><input type="radio" name="Disseny" value="Hija"><img src="assets/samarreta-hija.webp" alt="Hija" loading="lazy"><span class="cname">Hija</span></label><label class="card"><input type="radio" name="Disseny" value="Empordà"><img src="assets/samarreta-emporda.webp" alt="Empordà" loading="lazy"><span class="cname">Empordà</span></label><label class="card"><input type="radio" name="Disseny" value="Fan"><img src="assets/samarreta-fan.webp" alt="Fan" loading="lazy"><span class="cname">Fan</span></label></div>
+<div class="cards"><div class="cardw"><label class="card"><input type="radio" name="Disseny" value="Chipirón" required><img src="assets/samarreta-chipiron.webp" alt="Chipirón" loading="lazy"><span class="cname">Chipirón</span></label><button type="button" class="zoom" data-k="chipiron" data-n="Chipirón" aria-label="Ampliar Chipirón"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button></div><div class="cardw"><label class="card"><input type="radio" name="Disseny" value="Regalo"><img src="assets/samarreta-regalo.webp" alt="Regalo" loading="lazy"><span class="cname">Regalo</span></label><button type="button" class="zoom" data-k="regalo" data-n="Regalo" aria-label="Ampliar Regalo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button></div><div class="cardw"><label class="card"><input type="radio" name="Disseny" value="Hijo"><img src="assets/samarreta-hijo.webp" alt="Hijo" loading="lazy"><span class="cname">Hijo</span></label><button type="button" class="zoom" data-k="hijo" data-n="Hijo" aria-label="Ampliar Hijo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button></div><div class="cardw"><label class="card"><input type="radio" name="Disseny" value="Hija"><img src="assets/samarreta-hija.webp" alt="Hija" loading="lazy"><span class="cname">Hija</span></label><button type="button" class="zoom" data-k="hija" data-n="Hija" aria-label="Ampliar Hija"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button></div><div class="cardw"><label class="card"><input type="radio" name="Disseny" value="Empordà"><img src="assets/samarreta-emporda.webp" alt="Empordà" loading="lazy"><span class="cname">Empordà</span></label><button type="button" class="zoom" data-k="emporda" data-n="Empordà" aria-label="Ampliar Empordà"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button></div><div class="cardw"><label class="card"><input type="radio" name="Disseny" value="Fan"><img src="assets/samarreta-fan.webp" alt="Fan" loading="lazy"><span class="cname">Fan</span></label><button type="button" class="zoom" data-k="fan" data-n="Fan" aria-label="Ampliar Fan"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button></div></div>
 </section>
 
 <section class="box pay">
@@ -132,6 +145,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
 <button type="submit" class="send"><span class="t-ca">Encarregar la samarreta</span><span class="t-es">Pedir la camiseta</span></button>
 </form>
 </main>
+<dialog id="zv" aria-label="Disseny">
+<button type="button" class="zclose" aria-label="Tancar">✕</button>
+<img id="zimg" alt="">
+<div class="zbar"><span id="zname"></span><button type="button" class="zpick" id="zpick"><span class="t-ca">Triar aquest disseny</span><span class="t-es">Elegir este diseño</span></button></div>
+</dialog>
 <footer><a href="mailto:info@mimejorversiongrupo.com">info@mimejorversiongrupo.com</a><span>Guillem (<a href="tel:+34619623711">619 623 711</a>) · Oriol (<a href="tel:+34666143736">666 143 736</a>)</span></footer>
 <script>
 (function(){
@@ -148,6 +166,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
   document.querySelectorAll('.lang').forEach(function(b){b.addEventListener('click',function(){var l=b.dataset.lang;try{localStorage.setItem('mmv-lang',l)}catch(e){}history.replaceState(null,'','#'+l);set(l)})});
   var alt=document.getElementById('altres'),tx=document.getElementById('altrestxt');
   document.querySelectorAll('input[name=Talla]').forEach(function(r){r.addEventListener('change',function(){tx.hidden=!alt.checked;tx.required=alt.checked;if(alt.checked)tx.focus()})});
+  var dlg=document.getElementById('zv'),zi=document.getElementById('zimg'),zn=document.getElementById('zname'),zp=document.getElementById('zpick'),cur=null;
+  document.querySelectorAll('.zoom').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();
+    cur=b.dataset.n; zi.src='assets/samarreta-'+b.dataset.k+'-gran.webp'; zi.alt=cur||'';
+    zn.textContent=cur?(B.dataset.lang==='esp'?'Diseño ':'Disseny ')+cur:(B.dataset.lang==='esp'?'Diseño frontal':'Disseny frontal');
+    zp.hidden=!cur; if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');});});
+  function closeZ(){if(dlg.close)dlg.close();else dlg.removeAttribute('open');}
+  document.querySelector('.zclose').addEventListener('click',closeZ);
+  dlg.addEventListener('click',function(e){if(e.target===dlg)closeZ();});
+  zp.addEventListener('click',function(){var r=document.querySelector('input[name=Disseny][value="'+cur+'"]');if(r){r.checked=true;}closeZ();if(r)r.closest('.cardw').scrollIntoView({block:'center',behavior:'smooth'});});
   if(/[?&]enviat=1/.test(location.search)){document.getElementById('ok').hidden=false;document.getElementById('f').hidden=true;}
 })();
 </script>
